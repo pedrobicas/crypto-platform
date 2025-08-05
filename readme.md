@@ -4,6 +4,9 @@ Uma plataforma para análise técnica e previsão de criptomoedas usando modelos
 
 ⚠️ Apenas para fins educacionais.
 
+Veja rodando no Streamlit:
+- https://crypto-plataform.streamlit.app/
+
 ## Funcionalidades
 
 ### Análise Técnica Completa
