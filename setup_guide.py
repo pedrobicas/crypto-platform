@@ -12,32 +12,32 @@ from datetime import datetime
 
 def check_python_version():
     """Verifica se a versão do Python é compatível"""
-    print("🐍 Verificando versão do Python...")
+    print("Verificando versão do Python...")
     version = sys.version_info
     
     if version.major < 3 or (version.major == 3 and version.minor < 8):
-        print("❌ ERRO: Python 3.8+ é necessário")
+        print("ERRO: Python 3.8+ é necessário")
         print(f"   Versão atual: {version.major}.{version.minor}.{version.micro}")
         return False
     else:
-        print(f"✅ Python {version.major}.{version.minor}.{version.micro} - OK")
+        print(f"Python {version.major}.{version.minor}.{version.micro} - OK")
         return True
 
 def install_requirements():
     """Instala as dependências necessárias"""
-    print("\n📦 Instalando dependências...")
+    print("\nInstalando dependências...")
     
     try:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-        print("✅ Dependências instaladas com sucesso")
+        print("Dependências instaladas com sucesso")
         return True
     except subprocess.CalledProcessError:
-        print("❌ ERRO: Falha ao instalar dependências")
+        print("ERRO: Falha ao instalar dependências")
         return False
 
 def check_imports():
     """Verifica se todas as bibliotecas podem ser importadas"""
-    print("\n📚 Verificando imports...")
+    print("\nVerificando imports...")
     
     required_packages = [
         'streamlit',
@@ -55,39 +55,39 @@ def check_imports():
     for package in required_packages:
         try:
             importlib.import_module(package)
-            print(f"✅ {package} - OK")
+            print(f"{package} - OK")
         except ImportError:
-            print(f"❌ {package} - ERRO")
+            print(f"{package} - ERRO")
             failed_imports.append(package)
     
     if failed_imports:
-        print(f"\n❌ Falha ao importar: {', '.join(failed_imports)}")
+        print(f"\nFalha ao importar: {', '.join(failed_imports)}")
         return False
     else:
-        print("\n✅ Todos os imports funcionando corretamente")
+        print("\nTodos os imports funcionando corretamente")
         return True
 
 def test_api_connection():
     """Testa conexão com a API do CoinGecko"""
-    print("\n🌐 Testando conexão com API CoinGecko...")
+    print("\nTestando conexão com API CoinGecko...")
     
     try:
         response = requests.get("https://api.coingecko.com/api/v3/ping", timeout=10)
         
         if response.status_code == 200:
-            print("✅ Conexão com API CoinGecko - OK")
+            print("Conexão com API CoinGecko - OK")
             return True
         else:
-            print(f"❌ API retornou status: {response.status_code}")
+            print(f"API retornou status: {response.status_code}")
             return False
             
     except requests.exceptions.RequestException as e:
-        print(f"❌ Erro de conexão: {e}")
+        print(f"Erro de conexão: {e}")
         return False
 
 def test_data_collection():
     """Testa coleta de dados básica"""
-    print("\n📈 Testando coleta de dados...")
+    print("\nTestando coleta de dados...")
     
     try:
         from data_collector import CryptoDataCollector
@@ -96,19 +96,19 @@ def test_data_collection():
         data = collector.get_historical_data('bitcoin', 30)
         
         if data is not None and len(data) > 0:
-            print(f"✅ Coletados {len(data)} pontos de dados do Bitcoin")
+            print(f"Coletados {len(data)} pontos de dados do Bitcoin")
             return True
         else:
-            print("❌ Falha na coleta de dados")
+            print("Falha na coleta de dados")
             return False
             
     except Exception as e:
-        print(f"❌ Erro na coleta de dados: {e}")
+        print(f"Erro na coleta de dados: {e}")
         return False
 
 def test_technical_indicators():
     """Testa cálculo de indicadores técnicos"""
-    print("\n📊 Testando indicadores técnicos...")
+    print("\nTestando indicadores técnicos...")
     
     try:
         from data_collector import CryptoDataCollector
@@ -118,26 +118,26 @@ def test_technical_indicators():
         data = collector.get_historical_data('bitcoin', 50)
         
         if data is None:
-            print("❌ Não foi possível obter dados para teste")
+            print("Não foi possível obter dados para teste")
             return False
         
         indicators = TechnicalIndicators()
         data_with_indicators = indicators.calculate_all_indicators(data)
         
         if 'rsi' in data_with_indicators.columns and 'macd' in data_with_indicators.columns:
-            print("✅ Indicadores técnicos calculados com sucesso")
+            print("Indicadores técnicos calculados com sucesso")
             return True
         else:
-            print("❌ Falha no cálculo de indicadores")
+            print("Falha no cálculo de indicadores")
             return False
             
     except Exception as e:
-        print(f"❌ Erro no cálculo de indicadores: {e}")
+        print(f"Erro no cálculo de indicadores: {e}")
         return False
 
 def test_forecast_model():
     """Testa modelo de previsão"""
-    print("\n🔮 Testando modelo de previsão...")
+    print("\nTestando modelo de previsão...")
     
     try:
         from data_collector import CryptoDataCollector
@@ -147,26 +147,26 @@ def test_forecast_model():
         data = collector.get_historical_data('bitcoin', 100)
         
         if data is None:
-            print("❌ Não foi possível obter dados para teste")
+            print("Não foi possível obter dados para teste")
             return False
         
         forecaster = CryptoForecaster()
         result = forecaster.forecast_sarimax(data, 7)
         
         if 'forecast' in result and len(result['forecast']) > 0:
-            print("✅ Modelo de previsão funcionando")
+            print("Modelo de previsão funcionando")
             return True
         else:
-            print("❌ Falha no modelo de previsão")
+            print("Falha no modelo de previsão")
             return False
             
     except Exception as e:
-        print(f"❌ Erro no modelo de previsão: {e}")
+        print(f"Erro no modelo de previsão: {e}")
         return False
 
 def create_sample_config():
     """Cria arquivo de configuração de exemplo"""
-    print("\n⚙️ Criando configuração de exemplo...")
+    print("\n⚙Criando configuração de exemplo...")
     
     config = """# Configurações do Crypto Analysis Platform
 
@@ -195,15 +195,15 @@ CHART_HEIGHT = 800
     try:
         with open('config.py', 'w') as f:
             f.write(config)
-        print("✅ Arquivo config.py criado")
+        print("Arquivo config.py criado")
         return True
     except Exception as e:
-        print(f"❌ Erro ao criar configuração: {e}")
+        print(f"Erro ao criar configuração: {e}")
         return False
 
 def run_diagnostics():
     """Executa todos os testes de diagnóstico"""
-    print("🚀 CRYPTO ANALYSIS PLATFORM - DIAGNÓSTICO DO SISTEMA")
+    print("CRYPTO ANALYSIS PLATFORM - DIAGNÓSTICO DO SISTEMA")
     print("=" * 60)
     print(f"Data/Hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
@@ -228,17 +228,17 @@ def run_diagnostics():
             if test_func():
                 passed += 1
         except Exception as e:
-            print(f"❌ Erro inesperado em {test_name}: {e}")
+            print(f"Erro inesperado em {test_name}: {e}")
     
     print(f"\n{'='*60}")
-    print(f"📊 RESUMO: {passed}/{total} testes passaram")
+    print(f"RESUMO: {passed}/{total} testes passaram")
     
     if passed == total:
-        print("🎉 SUCESSO! Sistema pronto para uso")
+        print("SUCESSO! Sistema pronto para uso")
         print("\nPara executar a aplicação:")
         print("   streamlit run main.py")
     else:
-        print("⚠️  ATENÇÃO: Alguns testes falharam")
+        print("ATENÇÃO: Alguns testes falharam")
         print("   Verifique os erros acima antes de continuar")
     
     print("=" * 60)
@@ -249,16 +249,16 @@ if __name__ == "__main__":
     success = run_diagnostics()
     
     if success:
-        print("\n🚀 Deseja executar a aplicação agora? (y/n): ", end="")
+        print("\nDeseja executar a aplicação agora? (y/n): ", end="")
         response = input().lower().strip()
         
         if response in ['y', 'yes', 's', 'sim']:
-            print("\n🚀 Iniciando aplicação...")
+            print("\nIniciando aplicação...")
             try:
                 subprocess.run([sys.executable, "-m", "streamlit", "run", "main.py"])
             except KeyboardInterrupt:
-                print("\n👋 Aplicação encerrada pelo usuário")
+                print("\nAplicação encerrada pelo usuário")
             except Exception as e:
-                print(f"\n❌ Erro ao executar aplicação: {e}")
+                print(f"\nErro ao executar aplicação: {e}")
     else:
         sys.exit(1)
