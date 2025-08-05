@@ -1,0 +1,15 @@
+streamlit
+pandas
+numpy
+plotly
+requests
+statsmodels
+scikit-learn
+scipy
+ta
+yfinance
+python-dateutil
+pytz
+keras
+xgboost
+tensorflow
