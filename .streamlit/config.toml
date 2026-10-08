@@ -1,0 +1,30 @@
+[theme]
+base = "dark"
+primaryColor = "#E3B341"
+backgroundColor = "#121626"
+secondaryBackgroundColor = "#1A2036"
+textColor = "#E8EAF3"
+greenColor = "#34C38F"
+redColor = "#F2665E"
+blueColor = "#8C9EFF"
+violetColor = "#C08CF0"
+orangeColor = "#E3B341"
+yellowColor = "#E3B341"
+font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+headingFont = "Bricolage Grotesque:https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&display=swap"
+metricValueFontSize = "1.55rem"
+metricValueFontWeight = 600
+chartCategoricalColors = ["#E3B341", "#8C9EFF", "#34C38F", "#C08CF0", "#5CC8E0", "#F2665E", "#D9A87E", "#9FB0C8"]
+
+[theme.sidebar]
+backgroundColor = "#161B2E"
+secondaryBackgroundColor = "#1E2540"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+[server]
+runOnSave = false
