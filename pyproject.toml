@@ -1,0 +1,14 @@
+# Apenas configuração de ferramentas. As dependências ficam em requirements.txt
+# (é o arquivo que o Streamlit Community Cloud usa).
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP"]
+ignore = ["E501", "E731", "E741", "B008", "B905", "UP007"]

@@ -1,9 +1,16 @@
 venv/
+.venv/
 .env
 __pycache__/
-cache
-*.pyc
-*.pyo
-*.pyd
-.DS_Store
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
 .ipynb_checkpoints
+.DS_Store
+
+# cache de dados de mercado
+.cache/
+cache/
+
+# segredos locais (chaves de API)
+.streamlit/secrets.toml

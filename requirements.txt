@@ -1,15 +1,11 @@
-streamlit
-pandas
-numpy
-plotly
-requests
-statsmodels
-scikit-learn
-scipy
-ta
-yfinance
-python-dateutil
-pytz
-keras
-xgboost
-tensorflow
+# Versões mínimas testadas (também testado com pandas 3.0, numpy 2.5, statsmodels 0.15 e plotly 7)
+streamlit>=1.65,<2
+pandas>=2.2
+numpy>=2.1
+plotly>=6.0
+requests>=2.31
+statsmodels>=0.14.4
+scikit-learn>=1.5
+scipy>=1.14
+yfinance>=0.2.54
+pyarrow>=15
